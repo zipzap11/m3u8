@@ -1,3 +1,3 @@
-module github.com/grafov/m3u8
+module github.com/zipzap11/m3u8
 
 go 1.12
