@@ -399,6 +399,7 @@ func (p *MediaPlaylist) ResetCache() {
 // Encode generates output in M3U8 format. Marshal `winsize` elements
 // from bottom of the `buf` queue.
 func (p *MediaPlaylist) Encode() *bytes.Buffer {
+	fmt.Println("p.Segments-0", p.Segments[0].URI)
 	if p.buf.Len() > 0 {
 		return &p.buf
 	}
@@ -566,6 +567,7 @@ func (p *MediaPlaylist) Encode() *bytes.Buffer {
 	count := p.count
 	for i := uint(0); (i < p.winsize || p.winsize == 0) && count > 0; count-- {
 		seg = p.Segments[head]
+		fmt.Println("seg = ", seg)
 		head = (head + 1) % p.capacity
 		if seg == nil { // protection from badly filled chunklists
 			continue
