@@ -696,6 +696,7 @@ func (p *MediaPlaylist) Encode() *bytes.Buffer {
 		p.buf.WriteRune(',')
 		p.buf.WriteString(seg.Title)
 		p.buf.WriteRune('\n')
+		fmt.Println("seg.URI: ", seg.URI)
 		p.buf.WriteString(seg.URI)
 		if p.Args != "" {
 			p.buf.WriteRune('?')
